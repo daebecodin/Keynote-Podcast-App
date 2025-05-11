@@ -1,0 +1,48 @@
+
+type EpisodeCollection implements Collection {
+    id: ID!
+    title: String!
+    subtitle: String!
+    genreType: CollectionGenreType!
+    socialStatus: SocialStatus!
+    episodes: [Episode!]!
+}
+
+type Episode {
+    uuid: ID!
+    datePublished: Int!
+    name: String!
+    description: String
+    descriptionLinks: [String]
+    subtitle: String
+    imageUrl: String
+    audioUrl: String
+    videoUrl: String
+    transcript: [String]
+    fileLength: Int
+    duration: Int!
+    episodeType: PodcastEpisodeType
+    seasonNumber: Int
+    episodeNumber: Int
+    websiteUrl: String
+    podcastSeries: PodcastSeries
+    persons: [Person]!
+    transcriptsUrls: [String]
+    transcriptsUrlsWithDetails: [TranscriptLink]
+
+    " Download the transcript, parse it and return an array of transcript items (which include text, speakers and timecodes) "
+    transcriptWithSpeakersAndTimecodes(
+        " (Optional) Style option for transcript. Default is PARAGRAPH"
+        style: TranscriptItemStyle
+    ): [TranscriptItem]
+
+    chapters: [Chapter]
+    chaptersUrlsWithDetails: [ChapterLink]
+    keynotes: [Keynote]
+}
+
+type EpisodeQueries {
+    episodeByName(name: String!): Episode!
+    episodeById(uuid: ID!): Episode!
+    episodes: [Episode!]!
+}

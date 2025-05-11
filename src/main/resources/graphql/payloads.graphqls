@@ -1,0 +1,45 @@
+""" what we return on object delete """
+type AddPodcastPayload {
+    " newly created Podcast "
+    podcastSeries : PodcastSeries
+
+    """
+    A list of validation or business-rule errors.
+    Empty list if creation succeeded.
+    """
+    errors: [String!]!
+}
+type AddEpisodePayload {
+    " newly created Episode"
+    episode : Episode
+
+    """
+    A list of validation or business-rule errors.
+    Empty list if creation succeeded.
+    """
+    errors: [String!]!
+}
+type AddKeynotePayload {
+    " newly created Keynote "
+    keynote : Keynote
+
+    """
+    A list of validation or business-rule errors.
+    Empty list if creation succeeded.
+    """
+    errors: [String!]!
+}
+
+""" what we return on object delete """
+type DeletePodcastPayload {
+    success: Boolean
+    errors: [String!]!
+}
+type DeleteEpisodePayload {
+    success: Boolean
+    errors: [String!]!
+}
+type DeleteKeynotePayload {
+    success: Boolean
+    errors: [String!]!
+}

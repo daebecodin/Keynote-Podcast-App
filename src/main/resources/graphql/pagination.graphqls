@@ -1,0 +1,33 @@
+
+type PodcastConnection {
+    edges: [PodcastEdge]!
+    pageInfo: PageInfo!
+}
+type EpisodeConnection {
+    edges: [EpisodeEdge]!
+    pageInfo: PageInfo!
+}
+type KeynoteConnection {
+    edges: [KeynoteEdge!]!
+    pageInfo: PageInfo!
+}
+
+type PodcastEdge {
+    node: PodcastSeries!
+    cursor: String!
+}
+type EpisodeEdge {
+    node: Episode!
+    cursor: String!
+}
+type KeynoteEdge {
+    node: Keynote!
+    cursor: String
+}
+
+type PageInfo {
+    hasPreviousPage: Boolean!
+    hasNextPage: Boolean!
+    startCursor: String
+    endCursor: String
+}

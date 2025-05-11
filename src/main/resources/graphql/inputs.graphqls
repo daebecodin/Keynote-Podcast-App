@@ -1,0 +1,62 @@
+" input for add podcast mutation "
+input AddPodcastInput {
+    name: String!
+    authorName: String!
+    datePublished: Int!
+    description: String!
+}
+" input for add episode mutation "
+input AddEpisodeInput {
+    datePublished: Int!
+    name: String!
+    description: String
+    subtitle: String
+    imageUrl: String
+    duration: Int!
+}
+" input for add keynote mutation "
+input AddKeynoteInput {
+    name: String!
+    text: String!
+    notes: String!
+    startTimecode: Int!
+    endTimecode: Int!
+}
+
+" input for update keynote mutation "
+input UpdatePodcastInput {
+    """ID of the podcast to update."""
+    id: ID!
+
+    """ Leaving as optional in case fields dont change """
+    name: String
+    authorName: String
+    datePublished: Int
+    description: String
+
+}
+" input for update keynote mutation "
+input UpdateEpisodeInput {
+    """ID of the podcast to episode."""
+    id: ID!
+
+    """ Leaving as optional in case fields dont change """
+    datePublished: Int
+    name: String
+    description: String
+    subtitle: String
+    imageUrl: String
+    duration: Int
+}
+" input for update keynote mutation "
+input UpdateKeynoteInput {
+    """ID of the podcast to episode."""
+    id: ID!
+
+    """ Leaving as optional in case fields dont change """
+    name: String
+    text: String
+    notes: String
+    startTimecode: Int
+    endTimecode: Int
+}

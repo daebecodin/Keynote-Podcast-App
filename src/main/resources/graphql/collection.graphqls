@@ -1,0 +1,13 @@
+
+interface Collection {
+    id: ID!
+    title: String!
+    subtitle: String!
+    genreType: CollectionGenreType!
+    socialStatus: SocialStatus!
+}
+
+type CollectionQueries {
+    collectionByTitle(title: String!): Collection!
+    collectionById(id: ID!): Collection!
+}

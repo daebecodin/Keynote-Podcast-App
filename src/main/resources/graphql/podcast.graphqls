@@ -1,0 +1,26 @@
+
+type PodcastCollection implements Collection{
+    id: ID!
+    title: String!
+    subtitle: String!
+    genreType: CollectionGenreType!
+    socialStatus: SocialStatus!
+    podcasts: [PodcastSeries!]!
+}
+
+type PodcastSeries {
+    uuid: ID!
+    name: String!
+    authorName: String!
+    datePublished: Int!
+    description: String!
+    imageUrl: String
+    iTunesInfo: ITunesInfo
+    episodes: [Episode!]!
+}
+
+type PodcastQueries {
+    podcastById(uuid: ID!): PodcastSeries!
+    podcastByName(name: String!): PodcastSeries!
+    podcasts: [PodcastSeries!]!
+}

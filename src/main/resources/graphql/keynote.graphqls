@@ -1,0 +1,26 @@
+
+type Keynote {
+    id: ID!
+    name: String
+    text: String
+    notes: String
+    startTimecode: Int!
+    endTimecode: Int!
+}
+
+type KeynoteCollection implements Collection {
+    id: ID!
+    title: String!
+    subtitle: String!
+    genreType: CollectionGenreType!
+    socialStatus: SocialStatus!
+    keynotes: [Keynote!]!
+}
+
+type KeynoteQueries {
+    keynoteById(id: ID!): Keynote!
+    keynoteByName(name: String!): Keynote!
+    keynotes: [Keynote!]!
+}
+
+

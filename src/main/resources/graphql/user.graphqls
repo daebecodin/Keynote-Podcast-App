@@ -1,0 +1,17 @@
+interface Human {
+    id: ID!
+    firstName: String!
+    lastName: String!
+}
+
+type User implements Human{
+    id: ID!
+    firstName: String!
+    lastName: String!
+    collections: [Collection!]!
+}
+
+type UserQueries {
+    user(id: ID): User!
+    userByName(firstName: String!, lastName: String!): User
+}

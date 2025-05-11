@@ -1,0 +1,107 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Query {
+    users: UserQueries
+    collections: CollectionQueries
+    podcasts: PodcastQueries
+    keynotes: KeynoteQueries
+}
+
+type Mutation {
+    " add new podcast "
+    addPodcast(input: AddPodcastInput!): AddPodcastPayload!
+    " add new Episode "
+    addEpisode(input: AddEpisodeInput!): AddEpisodePayload!
+    " add new keynote "
+    addKeynote(input: AddKeynoteInput!): AddKeynotePayload!
+
+    " update existing podcast "
+    updatePodcast(input: UpdatePodcastInput!): AddPodcastPayload
+    " update existing episode "
+    updateEpisode(input: UpdateEpisodeInput!): AddEpisodePayload
+    " update existing keynote "
+    updateKeynote(input: UpdateKeynoteInput!): AddKeynotePayload
+
+    " delete existing podcast "
+    deletePodcast(uuid: ID!): DeletePodcastPayload
+    " delete existing episode "
+    deleteEpisode(uuid: ID!): DeleteEpisodePayload
+    " delete existing keynote "
+    deleteKeynote(uuid: ID!): DeleteKeynotePayload
+
+
+}
+
+" update for podcast "
+type UpdatePodcastPayload {
+    podcast: PodcastSeries!
+}
+" update for keynote "
+type UpdateKeynotePayload {
+    keynote: Keynote!
+}
+
+
+" api types and enums from taddy api "
+type ITunesInfo {
+    uuid: ID!
+    subtitle: String
+    summary: String
+    publisherId: Int!
+}
+type Chapter {
+    id: ID
+    title:String
+    startTimecode: Int
+}
+type SearchResultDetails {
+    id: ID
+    type: SearchContentType
+    totalCount: Int
+    pagesCount: Int
+}
+type Person {
+    uuid: ID
+    name: String
+    role: ContentRole
+    url: String
+    imgUrl: String
+}
+type TranscriptItem {
+    id: ID
+    text: String
+    speaker: String
+    startTimecode: Int
+    endTimecode: Int
+}
+type TranscriptLink {
+    url: String
+    type: String
+    isTaddyExclusive: Boolean
+    language: String
+    hasTimecodes: Boolean
+}
+type ChapterLink {
+    url: String
+    type: String
+    isTaddyExclusive: Boolean
+}
+type FeedRefreshDetails {
+    uuid: ID
+    priority: FeedRefreshPriority
+    reason: FeedRefreshPriorityReason
+    dateLastRefreshed: Int
+    websubDetails: WebsubDetails
+
+}
+type WebsubDetails {
+    uuid: ID
+    topicUrl: String
+    websubUrl: String
+    isVerified: Boolean
+}
+
+
