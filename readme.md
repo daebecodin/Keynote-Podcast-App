@@ -13,14 +13,13 @@ starting and end times of the KeyNote.
 
 ## Live Front-End
 - ### [Click Here!](https://v0-image-analysis-psi-gold-65.vercel.app/)
----
 
 # Getting Started
 
 ## Queries
 
 - code block here
----
+
 # Future Implementations
 * ### [Spring Framework](https://spring.io/projects/spring-framework#learn)
 * ### [Spring Data](https://spring.io/projects/spring-data#learn)
@@ -28,14 +27,14 @@ starting and end times of the KeyNote.
 * ### [Spring Boot Docker Compose](https://www.docker.com/)
 * ### [DGS](https://netflix.github.io/dgs/)
 * ### [Apollo](https://www.apollographql.com/docs/)
----
+
 
 
 
 # Contributing
 Pull requests are welcome. For major changes, please open an issue first
 to discuss what you would like to change.
----
+
 # Additional Info
 
 
