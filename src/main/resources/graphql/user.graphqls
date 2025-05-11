@@ -1,17 +1,22 @@
 interface Human {
-    id: ID!
-    firstName: String!
-    lastName: String!
+    uuid: ID!
+    name: String
 }
 
-type User implements Human{
-    id: ID!
-    firstName: String!
-    lastName: String!
-    collections: [Collection!]!
+type Person implements Human{
+    " Unique identifier (an uuid) for a person "
+    uuid: ID!
+    " The name of the person "
+    name: String
+    " The role of the person on the podcast "
+    role: ContentRole
+    " The url for the person "
+    url: String
+    " The url of the person's image "
+    imageUrl: String
 }
 
-type UserQueries {
-    user(id: ID): User!
-    userByName(firstName: String!, lastName: String!): User
+type PersonQueries {
+    user(uuid: ID): Person!
+    userByName(name: String!): Person
 }

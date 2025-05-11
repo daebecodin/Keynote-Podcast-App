@@ -1,0 +1,13 @@
+type ItunesInfo {
+    uuid: ID!
+    " Summary given in Apple Podcasts "
+    summary: String
+    " Base Url to the podcast's cover art from iTunes. NOTE: To get a working image, you need to pass in a size at the end of the url in the format {baseArtworkUrl}{size}x{size}bb.png ex {baseArtworkUrl}640x640bb.png "
+    baseArtworkUrl: String
+    " Publisher Id from iTunes "
+    publisherId: Int
+    " Publisher name from iTunes "
+    publisherName: String
+    " Country where the podcast is made "
+    country: Country
+}

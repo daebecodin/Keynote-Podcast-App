@@ -4,11 +4,27 @@ schema {
 }
 
 type Query {
-    users: UserQueries
+    person: PersonQueries
     collections: CollectionQueries
     podcasts: PodcastQueries
     keynotes: KeynoteQueries
+    search: SearchQueries
 }
+type SearchQueries {
+    searchPodcasts(
+        term: String
+        genres:[Genre!]
+        page: Int = 0
+        size: Int = 20
+    ): PodcastSeriesPage!
+    searchEpisodes(
+        seriesUuid: ID!
+        term: String
+        page: Int = 0
+        size: Int = 20
+    ): EpisodePage
+}
+
 
 type Mutation {
     " add new podcast "
@@ -31,8 +47,6 @@ type Mutation {
     deleteEpisode(uuid: ID!): DeleteEpisodePayload
     " delete existing keynote "
     deleteKeynote(uuid: ID!): DeleteKeynotePayload
-
-
 }
 
 " update for podcast "
@@ -44,64 +58,5 @@ type UpdateKeynotePayload {
     keynote: Keynote!
 }
 
-
-" api types and enums from taddy api "
-type ITunesInfo {
-    uuid: ID!
-    subtitle: String
-    summary: String
-    publisherId: Int!
-}
-type Chapter {
-    id: ID
-    title:String
-    startTimecode: Int
-}
-type SearchResultDetails {
-    id: ID
-    type: SearchContentType
-    totalCount: Int
-    pagesCount: Int
-}
-type Person {
-    uuid: ID
-    name: String
-    role: ContentRole
-    url: String
-    imgUrl: String
-}
-type TranscriptItem {
-    id: ID
-    text: String
-    speaker: String
-    startTimecode: Int
-    endTimecode: Int
-}
-type TranscriptLink {
-    url: String
-    type: String
-    isTaddyExclusive: Boolean
-    language: String
-    hasTimecodes: Boolean
-}
-type ChapterLink {
-    url: String
-    type: String
-    isTaddyExclusive: Boolean
-}
-type FeedRefreshDetails {
-    uuid: ID
-    priority: FeedRefreshPriority
-    reason: FeedRefreshPriorityReason
-    dateLastRefreshed: Int
-    websubDetails: WebsubDetails
-
-}
-type WebsubDetails {
-    uuid: ID
-    topicUrl: String
-    websubUrl: String
-    isVerified: Boolean
-}
 
 

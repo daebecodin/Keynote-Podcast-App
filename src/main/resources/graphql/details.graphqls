@@ -1,0 +1,21 @@
+type SearchResultDetails {
+    id: ID
+    type: SearchContentType
+    totalCount: Int
+    pagesCount: Int
+}
+
+type FeedRefreshDetails {
+    uuid: ID
+    priority: FeedRefreshPriority
+    reason: FeedRefreshPriorityReason
+    dateLastRefreshed: Int
+    websubDetails: WebsubDetails
+
+}
+type WebsubDetails {
+    uuid: ID
+    topicUrl: String
+    websubUrl: String
+    isVerified: Boolean
+}

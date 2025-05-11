@@ -1,4 +1,3 @@
-
 interface Collection {
     id: ID!
     title: String!
