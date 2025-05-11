@@ -2,7 +2,7 @@
 type Keynote {
     id: ID!
     name: String
-    text: String
+    transcript: String
     notes: String
     startTimecode: Int!
     endTimecode: Int!

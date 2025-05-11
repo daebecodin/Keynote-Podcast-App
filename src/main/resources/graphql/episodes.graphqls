@@ -8,6 +8,10 @@ type EpisodeCollection implements Collection {
     episodes: [Episode!]!
 }
 
+type EpisodeInCollection {
+    episode: Episode!
+    keynotes: [Keynote!]!
+}
 type Episode {
     uuid: ID!
     datePublished: Int!
@@ -16,6 +20,7 @@ type Episode {
     descriptionLinks: [String]
     subtitle: String
     imageUrl: String
+    hash: String
     audioUrl: String
     videoUrl: String
     transcript: [String]
@@ -25,11 +30,11 @@ type Episode {
     seasonNumber: Int
     episodeNumber: Int
     websiteUrl: String
+    isExplicitContent: Boolean
     podcastSeries: PodcastSeries
     persons: [Person]!
     transcriptsUrls: [String]
     transcriptsUrlsWithDetails: [TranscriptLink]
-
     " Download the transcript, parse it and return an array of transcript items (which include text, speakers and timecodes) "
     transcriptWithSpeakersAndTimecodes(
         " (Optional) Style option for transcript. Default is PARAGRAPH"

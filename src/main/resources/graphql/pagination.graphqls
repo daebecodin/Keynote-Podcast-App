@@ -31,3 +31,12 @@ type PageInfo {
     startCursor: String
     endCursor: String
 }
+
+type PodcastSeriesPage {
+    items: [PodcastSeries!]!
+    totalCount: Int!
+}
+type EpisodePage {
+    items: [Episode!]!
+    totalCount: Int!
+}

@@ -5,7 +5,12 @@ type PodcastCollection implements Collection{
     subtitle: String!
     genreType: CollectionGenreType!
     socialStatus: SocialStatus!
-    podcasts: [PodcastSeries!]!
+    podcasts: [PodcastInCollection!]!
+}
+
+type PodcastInCollection {
+    podcastSeries: PodcastSeries!
+    episodes: [EpisodeInCollection!]!
 }
 
 type PodcastSeries {
@@ -15,7 +20,13 @@ type PodcastSeries {
     datePublished: Int!
     description: String!
     imageUrl: String
-    iTunesInfo: ITunesInfo
+    iTunesInfo: [ItunesInfo]
+    websiteUrl: String
+    hash: String
+    childrenHash: String
+    isCompleted: Boolean
+    popularityRank: PopularityRank
+    isExplicitContent: Boolean
     episodes: [Episode!]!
 }
 
