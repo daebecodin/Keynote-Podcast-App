@@ -26,6 +26,8 @@ starting and end times of the KeyNote.
 * ### [Spring Data](https://spring.io/projects/spring-data#learn)
 * ### [PostgreSQL](https://www.postgresql.org/)
 * ### [Spring Boot Docker Compose](https://www.docker.com/)
+* ### [DGS](https://netflix.github.io/dgs/)
+* ### [Apollo](https://www.apollographql.com/docs/)
 ---
 
 
